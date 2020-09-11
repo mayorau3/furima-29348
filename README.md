@@ -43,10 +43,6 @@
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| card_num      | integer    | null: false                    |
-| period_month  | date       | null: false                    |
-| period_year   | date       | null: false                    |
-| security_code | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
 | item          | references | null: false, foreign_key: true |
 
