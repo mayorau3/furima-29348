@@ -26,10 +26,10 @@
 | ------------ | ---------- | ------------------------------ |
 | name         | string     | null: false                    |
 | explanation  | text       | null: false                    |
-| category     | string     | null: false                    |
-| item_status  | string     | null: false                    |
+| category     | integer    | null: false                    |
+| item_status  | integer    | null: false                    |
 | shipping_fee | integer    | null: false                    |
-| ship_from    | string     | null: false                    |
+| ship_from    | integer    | null: false                    |
 | num_days     | integer    | null: false                    |
 | price        | integer    | null: false                    |
 | sales_fee    | integer    | null: false                    |
