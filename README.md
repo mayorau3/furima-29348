@@ -55,7 +55,7 @@
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
 | zip_code   | string     | null: false                    |
-| prefecture | string     | null: false                    |
+| prefecture | integer    | null: false                    |
 | city       | string     | null: false                    |
 | address1   | string     | null: false                    |
 | address2   | string     |                                |
