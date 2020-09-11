@@ -32,8 +32,6 @@
 | ship_from    | integer    | null: false                    |
 | num_days     | integer    | null: false                    |
 | price        | integer    | null: false                    |
-| sales_fee    | integer    | null: false                    |
-| sales_profit | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
 ### Association
