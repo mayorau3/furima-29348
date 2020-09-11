@@ -24,7 +24,7 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| item_name    | string     | null: false                    |
+| name         | string     | null: false                    |
 | explanation  | string     | null: false                    |
 | category     | string     | null: false                    |
 | item_status  | string     | null: false                    |
