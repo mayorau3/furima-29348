@@ -21,4 +21,6 @@ class User < ApplicationRecord
     validates :kana_family_name
     validates :kana_first_name
   end
+
+  has_many :items
 end
