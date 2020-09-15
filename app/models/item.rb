@@ -1,5 +1,10 @@
 class Item < ApplicationRecord
   belongs_to :user
+  belongs_to_active_hash :category
+  belongs_to_active_hash :status
+  belongs_to_active_hash :ship_fee
+  belongs_to_active_hash :ship_from
+  belongs_to_active_hash :num_day
 
   validates :name, :explanation, :category_id, :status_id, :ship_fee_id, :ship_from_id, :num_day_id, presence: true
 
