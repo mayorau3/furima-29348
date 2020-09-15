@@ -10,4 +10,7 @@ class Item < ApplicationRecord
 
   # 価格の範囲指定 ¥300〜¥9,999,999の間、半角数字のみ可
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+
+  #選択が「---」の時は保存できないようにする
+  validates :category_id, :status_id, :ship_fee_id, :ship_from_id, :num_day_id, numericality: { other_than: 1 } 
 end
