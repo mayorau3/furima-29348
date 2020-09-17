@@ -11,9 +11,9 @@ RSpec.describe Item, type: :model do
     end
 
     it "商品画像が空では登録できないこと" do
-    #テストどうやる？  @item.image = nil
-    # @item.valid?
-    # expect(@item.errors.full_messages).to include("Image can't be blank")
+    @item.image = nil
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Image can't be blank")
     end
 
     it "商品名が空では登録できないこと" do
