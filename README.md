@@ -25,11 +25,11 @@
 | ------------ | ---------- | ------------------------------ |
 | name         | string     | null: false                    |
 | explanation  | text       | null: false                    |
-| category     | integer    | null: false                    |
-| item_status  | integer    | null: false                    |
-| shipping_fee | integer    | null: false                    |
-| ship_from    | integer    | null: false                    |
-| num_days     | integer    | null: false                    |
+| category_id  | integer    | null: false                    |
+| status_id    | integer    | null: false                    |
+| ship_fee_id  | integer    | null: false                    |
+| ship_from_id | integer    | null: false                    |
+| num_day_id   | integer    | null: false                    |
 | price        | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
