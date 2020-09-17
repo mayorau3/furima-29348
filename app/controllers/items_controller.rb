@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_session_new, only: :new
 
   def index
+    @item = Item.all
   end
 
   def new
