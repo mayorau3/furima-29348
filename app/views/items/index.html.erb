@@ -126,7 +126,6 @@
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
 
-      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
       <% @items.each do |item| %>
         <li class='list'>
           <%= link_to "#" do %>
@@ -155,13 +154,11 @@
           <% end %>
         </li>
       <% end %>
-      <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
     </ul>
   </div>
   <%# /商品一覧 %>
 </div>
 <div class='purchase-btn'>
-  <%# ユーザーログインしていれば商品出品ページへ、ログインしていなければログインページへ遷移 %>
   <% if user_signed_in? %>
     <%= link_to '出品する', new_item_path, class: 'purchase-btn-text' %>
   <% else %>
