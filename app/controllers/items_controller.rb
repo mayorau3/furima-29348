@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
   before_action :move_to_session_new, only: :new
+  before_action :set_item, only: :show
 
   def index
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.order('created_at DESC')
   end
 
   def new
@@ -18,6 +19,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def item_params
@@ -26,5 +30,9 @@ class ItemsController < ApplicationController
 
   def move_to_session_new
     redirect_to new_user_session_path unless user_signed_in?
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
