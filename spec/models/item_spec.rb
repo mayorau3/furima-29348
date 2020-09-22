@@ -65,15 +65,15 @@ RSpec.describe Item, type: :model do
     end
 
     it '発送元の地域が空では登録できないこと' do
-      @item.ship_from_id = nil
+      @item.prefecture_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Ship from can't be blank")
+      expect(@item.errors.full_messages).to include("Prefecture can't be blank")
     end
 
     it '発送元の地域が「---」では登録できないこと' do
-      @item.ship_from_id = 1
+      @item.prefecture_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Ship from Select')
+      expect(@item.errors.full_messages).to include('Prefecture Select')
     end
 
     it '発送までの日数が空では登録できないこと' do

@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_023518) do
     t.integer "category_id", null: false
     t.integer "status_id", null: false
     t.integer "ship_fee_id", null: false
-    t.integer "ship_from_id", null: false
+    t.integer "prefecture_id", null: false
     t.integer "num_day_id", null: false
     t.integer "price", null: false
     t.bigint "user_id", null: false
