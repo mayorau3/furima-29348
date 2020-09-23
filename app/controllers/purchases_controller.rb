@@ -1,9 +1,13 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @item = Item.find(params[:item_id])
-    @purchase = PurchaseAddress.new
+    if current_user.id == @item.user_id
+      redirect_to root_path
+    else
+      @purchase = PurchaseAddress.new
+    end
   end
 
   def create
