@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
   before_action :seller_or_not
+  before_action :sold_or_not
 
   def index
     @purchase = PurchaseAddress.new
@@ -42,4 +43,14 @@ class PurchasesController < ApplicationController
       redirect_to root_path
     end
   end
+  
+  def sold_or_not
+    purchases = Purchase.all
+    purchases.each do |perchase|
+      if perchase[:item_id] == @item.id
+        return redirect_to root_path
+      end
+    end
+  end
+
 end
