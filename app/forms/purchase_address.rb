@@ -1,10 +1,10 @@
 class PurchaseAddress
 
   include ActiveModel::Model
-  attr_accessor :zip_code, :prefecture, :city, :address1, :address2, :phone_num, :user_id, :item_id
+  attr_accessor :zip_code, :prefecture, :city, :address1, :address2, :phone_num, :user_id, :item_id, :token
 
   with_options presence: true do
-    validates :city, :address1
+    validates :city, :address1, :token
     # 「住所」の郵便番号に関するバリデーション
     validates :zip_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "Input correctly"}
     # 「電話番号」に関するバリデーション
