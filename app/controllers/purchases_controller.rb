@@ -39,9 +39,8 @@ class PurchasesController < ApplicationController
   end
 
   def sold_or_not
-    purchases = Purchase.all
-    purchases.each do |perchase|
-      return redirect_to root_path if perchase[:item_id] == @item.id
+    if Purchase.find_by(item_id: @item.id)
+      redirect_to root_path
     end
   end
 end
