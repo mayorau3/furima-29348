@@ -12,12 +12,12 @@ class PurchasesController < ApplicationController
     if @purchase.valid?
       pay_item
       @purchase.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render 'index'
     end
   end
-  
+
   private
 
   def strong_params
@@ -25,28 +25,23 @@ class PurchasesController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
       card: strong_params[:token],
-      currency:'jpy'
+      currency: 'jpy'
     )
   end
 
   def seller_or_not
     @item = Item.find(params[:item_id])
-    if current_user.id == @item.user_id
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.id == @item.user_id
   end
-  
+
   def sold_or_not
     purchases = Purchase.all
     purchases.each do |perchase|
-      if perchase[:item_id] == @item.id
-        return redirect_to root_path
-      end
+      return redirect_to root_path if perchase[:item_id] == @item.id
     end
   end
-
 end
