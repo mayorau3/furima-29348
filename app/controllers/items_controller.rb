@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :explanation, :category_id, :status_id, :ship_fee_id, :ship_from_id, :num_day_id, :price, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :explanation, :category_id, :status_id, :ship_fee_id, :prefecture_id, :num_day_id, :price, :image).merge(user_id: current_user.id)
   end
 
   def move_to_session_new
