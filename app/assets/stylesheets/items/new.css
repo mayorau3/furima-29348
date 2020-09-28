@@ -83,6 +83,7 @@
 .image-preview {
   height: 100px;
   width: 150px;
+  object-fit: contain;
 }
 
 .click-upload {
