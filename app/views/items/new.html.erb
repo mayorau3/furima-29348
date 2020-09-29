@@ -15,14 +15,14 @@
         出品画像
         <span class="indispensable">必須</span>
       </div>
-      <%# プレビュー画像%>
-      <div id="image-list"></div>
-      <%# /プレビュー画像%>
       <div class="click-upload">
         <p>
           クリックしてファイルをアップロード
         </p>
         <%= f.file_field :images, name:'item[images][]', id:"item-image" %>
+        <%# プレビュー画像%>
+        <div id="image-list"></div>
+        <%# /プレビュー画像%>
       </div>
     </div>
     <%# /出品画像 %>
