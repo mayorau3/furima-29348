@@ -11,7 +11,8 @@ FactoryBot.define do
     association :user
 
     after(:build) do |item|
-      item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
+      item.images.attach(io: File.open('public/images/test_image1.png'), filename: 'test_image1.png')
+      item.images.attach(io: File.open('public/images/test_image2.png'), filename: 'test_image2.png')
     end
   end
 end
