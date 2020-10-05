@@ -20,7 +20,7 @@ class Item < ApplicationRecord
   validates :category_id, :status_id, :ship_fee_id, :prefecture_id, :num_day_id, numericality: { other_than: 1, message: 'Select' }
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Item.where('name LIKE(?)', "%#{search}%")
     else
       Item.all

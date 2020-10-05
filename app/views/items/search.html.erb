@@ -27,77 +27,74 @@
       <% @results.each do |result| %>
         <% cotegory_count += 1 %>
         <% if cotegory_count == 1 %>
-        <div class="subtitle">「<%= result.category.name %>」の検索結果</div>
+          <div class="subtitle">「<%= result.category.name %>」の検索結果</div>
+        <% else %>
+          <div class="subtitle"></div>
         <% end %>
-          <ul class='item-lists'>
+        <ul class='item-lists'>
+          <li class='list'>
+            <%= link_to item_path(result.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag result.images.first, class: "item-img" %>
 
-            <li class='list'>
-              <%= link_to item_path(result.id) do %>
-              <div class='item-img-content'>
-                <%= image_tag result.images.first, class: "item-img" %>
-
-                <% if result.purchase != nil %>
-                  <div class='sold-out'>
-                    <span>Sold Out!!</span>
-                  </div>
-                <% end %>
-
-              </div>
-              <div class='item-info'>
-                <h3 class='item-name'>
-                  <%= result.name %>
-                </h3>
-                <div class='item-price'>
-                  <span><%= result.price.to_s(:delimited) %>円<br>(税込み)</span>
-                  <div class='star-btn'>
-                    <%= image_tag "star.png", class:"star-icon" %>
-                    <span class='star-count'>0</span>
-                  </div>
+              <% if result.purchase != nil %>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                </div>
+              <% end %>
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= result.name %>
+              </h3>
+              <div class='item-price'>
+                <span><%= result.price.to_s(:delimited) %>円<br>(税込み)</span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
                 </div>
               </div>
-              <% end %>
-            </li>
-          </ul>
-        </div>
+            </div>
+            <% end %>
+          </li>
+        </ul>
       <% end %>
     <% elsif params[:keyword] != nil && @items.length !=0 %>
-    <h2 class='title'>ピックアップカテゴリー</h2>
-    <% if params[:keyword].blank?  %>
-      <div class="subtitle"></div>
-    <% else %>
-      <div class="subtitle">「<%= params[:keyword] %>」の検索結果</div>
-    <% end %>
-        <ul class='item-lists'>
-          <% @items.each do |item| %>
-            <li class='list'>
-              <%= link_to item_path(item.id) do %>
-              <div class='item-img-content'>
-                <%= image_tag item.images.first, class: "item-img" %>
+      <h2 class='title'>ピックアップカテゴリー</h2>
+      <% if params[:keyword].blank?  %>
+        <div class="subtitle"></div>
+      <% else %>
+        <div class="subtitle">「<%= params[:keyword] %>」の検索結果</div>
+      <% end %>
+      <ul class='item-lists'>
+        <% @items.each do |item| %>
+          <li class='list'>
+            <%= link_to item_path(item.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag item.images.first, class: "item-img" %>
 
-                <% if item.purchase != nil %>
-                  <div class='sold-out'>
-                    <span>Sold Out!!</span>
-                  </div>
-                <% end %>
-
-              </div>
-              <div class='item-info'>
-                <h3 class='item-name'>
-                  <%= item.name %>
-                </h3>
-                <div class='item-price'>
-                  <span><%= item.price.to_s(:delimited) %>円<br>(税込み)</span>
-                  <div class='star-btn'>
-                    <%= image_tag "star.png", class:"star-icon" %>
-                    <span class='star-count'>0</span>
-                  </div>
+              <% if item.purchase != nil %>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                </div>
+              <% end %>
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= item.name %>
+              </h3>
+              <div class='item-price'>
+                <span><%= item.price.to_s(:delimited) %>円<br>(税込み)</span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
                 </div>
               </div>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+            </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     <% else %>
       <h2 class='title'>検索に一致する商品はありません。</h2>
     <% end %>

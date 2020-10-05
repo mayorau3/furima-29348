@@ -39,8 +39,6 @@ class PurchasesController < ApplicationController
   end
 
   def sold_or_not
-    if Purchase.find_by(item_id: @item.id)
-      redirect_to root_path
-    end
+    redirect_to root_path if Purchase.find_by(item_id: @item.id)
   end
 end
