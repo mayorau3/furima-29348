@@ -27,7 +27,7 @@
       <% @results.each do |result| %>
         <% cotegory_count += 1 %>
         <% if cotegory_count == 1 %>
-        <div class="subtitle">「<%= result.category.name %>」の検索結果(true)</div>
+        <div class="subtitle">「<%= result.category.name %>」の検索結果</div>
         <% end %>
           <ul class='item-lists'>
 
@@ -65,7 +65,7 @@
     <% if params[:keyword].blank?  %>
       <div class="subtitle"></div>
     <% else %>
-      <div class="subtitle">「<%= params[:keyword] %>」の検索結果(elsif)</div>
+      <div class="subtitle">「<%= params[:keyword] %>」の検索結果</div>
     <% end %>
         <ul class='item-lists'>
           <% @items.each do |item| %>
@@ -99,7 +99,7 @@
         </ul>
       </div>
     <% else %>
-      <h2 class='title'>検索に一致する商品はありません。(else)</h2>
+      <h2 class='title'>検索に一致する商品はありません。</h2>
     <% end %>
   </div>
   <%# /商品一覧 %>
