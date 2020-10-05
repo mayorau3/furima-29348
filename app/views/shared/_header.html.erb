@@ -4,7 +4,8 @@
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
     <%# 検索フォーム%>
     <%= form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |form| %>
-      <%= form.text_field :keyword, placeholder: 'キーワードから探す', class: 'input-box' %>
+      <%= form.label :keyword, 'キーワードから探す', class: 'input-label'%>
+      <%= form.text_field :keyword, placeholder: 'キーワードを入力', class: 'input-box' %>
       <button class="search-button">
         <%= image_submit_tag "search.png", class:"search-icon" %>
       </button>
@@ -13,8 +14,15 @@
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
-      <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
+      <li>
+        <%= search_form_for @p, url: search_items_path do |f| %>
+          <%= f.label :category_id_eq, 'カテゴリーから探す', class: "category-list" %>
+          <%= f.collection_select(:category_id_eq, Category.all, :id, :name, {}, {class:"select-box"}) %>
+          <button class="search-button">
+            <%= image_submit_tag "search.png", class:"search-icon" %>
+          </button>
+        <% end %>
+      </li>
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
