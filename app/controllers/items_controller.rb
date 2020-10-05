@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_session_new, only: :new
   before_action :set_item, only: [:show, :edit, :update]
+  before_action :search_item, only: [:index, :search, :show]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -39,6 +40,11 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @items = Item.search(params[:keyword])
+    @results = @p.result
+  end
+
   private
 
   def item_params
@@ -52,4 +58,9 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  def search_item
+    @p = Item.ransack(params[:q])
+  end
+
 end
