@@ -1,5 +1,8 @@
 # README
 
+# 最終課題説明文
+https://docs.google.com/document/d/1Vv0bwgpToxjGJw7cxpw0GXNC6vTnlywvidh_fp1d2DU/edit#heading=h.uc9r1bu1xm1f
+
 # テーブル設計
 
 ## users テーブル
